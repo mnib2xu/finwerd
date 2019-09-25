@@ -1,0 +1,99 @@
+/*
+Vars
+ */
+
+$black: #010000;
+$white: #ffffff;
+$lightBlue: #79a0f6;
+$lightGrey: #e6e6e6;
+$red: #ff1755;
+
+/* Fonts -
+
+regular 400
+regular 400 Italic
+bold 700
+bold 700 italic
+
+*/
+
+/* Mixins
+
+ */
+
+@mixin translateY($e) {
+  -webkit-transform: translateY($e);
+  -moz-transform: translateY($e);
+  -o-transition:$e;
+  transform: translateY($e);
+}
+
+@mixin translate($e) {
+  -webkit-transform: translate3d($e,$e,0);
+  -moz-transform: translate3d($e,$e,0);
+  -ms-transform: translate3d($e,$e,0);
+  -o-transform: translate3d($e,$e,0);
+  transform: translate3d($e,$e,0);
+}
+
+@mixin transition($e) {
+  -webkit-transition:$e;
+  -moz-transition:$e;
+  -o-transition:$e;
+  transition:$e;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+
+
+
