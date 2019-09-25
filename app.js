@@ -10,21 +10,21 @@ require('dotenv').config()
 
 app.use(function(req,res,next) {
   if(req.headers["x-forwarded-proto"] == "http") {
-      res.redirect("https://www.dexteradomini.com");
+      res.redirect("https://www.finwerd.com");
   } else {
       return next();
   }
 });
 
 // connect to mongoDB
-mongoose
-  .connect(process.env.DB_HOST || 'mongodb:27017/dextera', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-});
+// mongoose
+//   .connect(process.env.DB_HOST || 'mongodb:27017/dextera', {useNewUrlParser: true})
+//   .then(x => {
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   })
+//   .catch(err => {
+//     console.error('Error connecting to mongo', err)
+// });
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -43,16 +43,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var indexRouter = require('./routes/index');
-var peopleRouter = require('./routes/people');
 var careerRouter = require('./routes/career');
-var instituteRouter = require('./routes/institute');
 var contactRouter = require('./routes/contact');
 var thanksRouter = require('./routes/thanks');
 
 app.use('/', indexRouter);
-app.use('/people', peopleRouter);
 app.use('/career', careerRouter);
-app.use('/institute', instituteRouter);
 app.use('/contact', contactRouter);
 app.use('/thanks', thanksRouter);
 
