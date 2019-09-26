@@ -6,7 +6,9 @@ const Resume = require('../models/applicant')
 const Message = require('../models/message')
 
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: "smtp.strato.com",
+  port: 465,
+  secure: true,
   auth: {
       user: process.env.SEND_MAIL_ACCOUNT,
       pass: process.env.SEND_MAIL_PASSWORD
